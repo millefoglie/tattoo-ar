@@ -1,3 +1,5 @@
+import org.codehaus.groovy.runtime.metaclass.DefaultMetaClassInfo
+
 buildscript {
     ext.kotlin_version = '1.7.10'
     repositories {
@@ -7,6 +9,7 @@ buildscript {
 
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:2.0.1"
     }
 }
 

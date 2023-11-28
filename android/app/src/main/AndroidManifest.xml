@@ -1,4 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera.ar" android:required="true"/>
+    <uses-feature
+            android:name="android.hardware.camera"
+            android:required="false" />
+
     <application
         android:label="tattoo_ar"
         android:name="${applicationName}"
@@ -29,5 +35,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data
+                android:name="easyAR.API_KEY"
+                android:value="${EASY_AR_API_KEY}" />
     </application>
 </manifest>
