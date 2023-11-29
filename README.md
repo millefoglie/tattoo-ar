@@ -56,4 +56,5 @@ flutter run
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 - [5 Takeaways From Building an AR-based Image Recognition App with Flutter](https://medium.com/miquido/5-takeaways-from-building-an-ar-based-image-recognition-app-with-flutter-3864100a22c2)
 - [ar_quido Flutter plugin](https://pub.dev/packages/augmented_reality_plugin)
+- [Hosting native Android views in your Flutter app with Platform Views](https://docs.flutter.dev/platform-integration/android/platform-views)
 - [OpenGL ES Tutorials](https://arm-software.github.io/opengl-es-sdk-for-android/tutorials.html)

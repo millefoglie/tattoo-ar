@@ -70,7 +70,7 @@ class TattooRenderer(
             vec2 center = vec2(0.5, 0.5);
             vec4 color = texture2D(u_texture, v_texCoord);
             float dist = distance(v_texCoord, center);
-            float value = normalize(length(color.rgb));
+            float value = length(vec3(color.rgb)) / sqrt(3.0);
             float valueThreshold = 0.8;
             
             if (value > valueThreshold) {
@@ -82,12 +82,12 @@ class TattooRenderer(
                     float alpha = (dist - u_fadeRadius) / (u_markerRadius - u_fadeRadius);
                     color.a = 1.0 - value * (1.0 - alpha);
                 }
-                
+
                 color.r = color.r * u_tint.x;
                 color.g = color.g * u_tint.y;
                 color.b = color.b * u_tint.z;
             }
-            
+
             gl_FragColor = color;
         }
         """
@@ -187,8 +187,8 @@ class TattooRenderer(
         GLES30.glVertexAttribPointer(texCoordLocation, 2, GLES30.GL_FLOAT, false, 0, 0)
         checkGLError("Set texture")
 
-        GLES30.glUniform1f(markerRadiusLocation, sqrt(2.0f) / (2f * SCALE))
-        GLES30.glUniform1f(fadeRadiusLocation, sqrt(2.0f) * (1f / 4f + 1f / (4f * SCALE)))
+        GLES30.glUniform1f(markerRadiusLocation, 1f / (2f * SCALE))
+        GLES30.glUniform1f(fadeRadiusLocation, 1f / 4f + 1f / (4f * SCALE))
         GLES30.glUniform3fv(tintLocation, 1, TINT, 0)
         GLES30.glUniformMatrix4fv(transLocation, 1, false, getGLMatrix(cameraView), 0)
         GLES30.glUniformMatrix4fv(projLocation, 1, false, getGLMatrix(projectionMatrix), 0)
